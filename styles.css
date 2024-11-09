@@ -201,13 +201,6 @@ h1 {
     transition: transform 0.1s;
 }
 
-/* Estilos de easter eggs */
-.easter-egg {
-    position: absolute;
-    font-size: 24px;
-    opacity: 0;
-    transition: opacity 0.5s, transform 0.5s;
-}
 
 /* Estilos del portal */
 #portal {
@@ -230,20 +223,23 @@ h1 {
 /* Estilos de los personajes */
 #rick, #morty {
     position: fixed;
-    width: 50px;
-    height: 50px;
+    width: 210px; /* Ajusta el tamaño según prefieras */
+    height: 210px; /* Ajusta el tamaño según prefieras */
     background-size: contain;
     background-repeat: no-repeat;
     display: none;
+    z-index: 9999; /* Asegura que estén al frente de todo */
 }
+
+
 
 /* Imágenes de personajes */
 #rick {
-    background-image: url('https://i.imgur.com/3VGqCdN.png');
+    background-image: url('./rick.png');
 }
 
 #morty {
-    background-image: url('https://i.imgur.com/8DZT5GF.png');
+    background-image: url('./morty.png');
 }
 
 /* Animaciones adicionales */
@@ -262,4 +258,43 @@ h1 {
 @keyframes stabilize {
     0% { filter: hue-rotate(0deg) blur(5px); }
     100% { filter: hue-rotate(0deg) blur(0px); }
+}
+
+/* Añadir animación de fade-in */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+#rick, #morty {
+    animation: fadeIn 0.5s ease-out;
+}
+
+
+/* Estilos mejorados para los easter eggs (emojis) */
+.easter-egg {
+    position: absolute;
+    font-size: 2em;
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 1000;
+    text-shadow: 0 0 10px var(--primary-color);
+    filter: drop-shadow(0 0 5px var(--primary-color));
+    animation: emojiPop 0.5s forwards;
+}
+
+/* Animación para cuando aparece el emoji */
+@keyframes emojiPop {
+    0% {
+        transform: scale(0) rotate(0deg);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2) rotate(180deg);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1) rotate(360deg);
+        opacity: 1;
+    }
 }
