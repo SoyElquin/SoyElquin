@@ -1,0 +1,59 @@
+<!-- Declaración del tipo de documento HTML5 -->
+<!DOCTYPE html>
+<!-- Documento HTML con idioma español -->
+<html lang="es">
+<head>
+    <!-- Configuración de caracteres UTF-8 para soporte de acentos y caracteres especiales -->
+    <meta charset="UTF-8">
+    <!-- Configuración de la vista para dispositivos móviles -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título de la página -->
+    <title>Laboratorio Temporal de Elquin</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+    <!-- Elemento personalizado para el cursor -->
+    <div id="cursor"></div>
+    
+    <!-- Elementos para efectos visuales de portal y personajes -->
+    <div id="portal"></div>
+    <div id="rick"></div>
+    <div id="morty"></div>
+    
+    <!-- Contenedor principal -->
+    <div class="container">
+        <!-- Título principal -->
+        <h1>Laboratorio Temporal de Elquin</h1>
+        
+        <!-- Mensaje de estado -->
+        <div id="message">Iniciando secuencia interdimensional...</div>
+        
+        <!-- Contenedor de la barra de progreso -->
+        <div class="progress-container">
+            <div id="progress-bar"></div>
+        </div>
+        
+        <!-- Contenedor de tubos de ensayo -->
+        <div class="lab-container">
+            <!-- Tubos de ensayo con atributos de datos para easter eggs -->
+            <div class="tube" onclick="tubeClick(this)" data-easter-egg="🧪"></div>
+            <div class="tube" onclick="tubeClick(this)" data-easter-egg="🧬"></div>
+            <div class="tube" onclick="tubeClick(this)" data-easter-egg="⚗️"></div>
+        </div>
+        
+        <!-- Temporizador -->
+        <div id="countdown">00:00:00</div>
+        
+        <!-- Panel de control con botones -->
+        <div id="control-panel">
+            <button class="control-button" onclick="activatePortalGun()">Portal Gun</button>
+            <button class="control-button" onclick="stabilizeReality()">Estabilizar Realidad</button>
+            <button class="control-button" onclick="summonCharacter()">Invocar Personaje</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
