@@ -1,3 +1,5 @@
+const emojis = ['🧪', '⚗️', '🔬', '🧬', '🔭', '💉', '🧫', '🦠', '💊', '🌡️', '⚛️', '🔋', '💡', '🧲', '🎯', '🧮', '📡', '🛸', '🌌', '🌠', '☄️', '⚡', '🌀', '🎆', '💫', '✨', '💥'];
+
 // Definimos un array con mensajes temáticos de Rick y Morty que se mostrarán aleatoriamente
 const messages = [
     "Calibrando flujo del espacio-tiempo...",
@@ -7,8 +9,13 @@ const messages = [
     "Solucionando de manera improvisada errores en JavaScript...",
     "Escaneando repositorios dimensionales...",
     "Ajustando la hoja de vida de Elquin...",
-    "Preguntando a ChatGPT por el sentido de la vida...",
+    "Preguntando a ChatGPT por el sentido de la vida..."
 ];
+
+
+function getRandomFromArray(array) {
+    return array[Math.floor(Math.random() * array.length)];
+}
 
 // Función que actualiza el mensaje mostrado en pantalla con un efecto de desvanecimiento
 function updateMessage() {
@@ -74,45 +81,28 @@ function createBubble(tube) {
     setTimeout(() => bubble.remove(), 3000);
 }
 
-// Función que maneja el evento de clic en un tubo
-function tubeClick(tube) {
-    // Creamos 5 burbujas con un retraso entre cada una
-    for (let i = 0; i < 5; i++) {
-        // Creamos cada burbuja con un retraso de 200ms entre cada una
-        setTimeout(() => createBubble(tube), i * 200);
-    }
-    
-    // Mostramos el easter egg asociado al tubo
-    showEasterEgg(tube);
-}
+
 
 // Función que muestra un easter egg cuando se hace clic en un tubo
 function showEasterEgg(tube) {
-    // Creamos un nuevo elemento div para el easter egg
     const easterEgg = document.createElement('div');
-    
-    // Añadimos la clase 'easter-egg' para los estilos CSS
     easterEgg.classList.add('easter-egg');
+    easterEgg.textContent = getRandomFromArray(emojis);
     
-    // Establecemos el contenido del easter egg desde el atributo data-easter-egg del tubo
-    easterEgg.textContent = tube.dataset.easterEgg;
+    const { left, top } = tube.getBoundingClientRect();
+    easterEgg.style.left = `${left}px`;
+    easterEgg.style.top = `${top}px`;
     
-    // Posicionamos el easter egg en la misma posición que el tubo
-    easterEgg.style.left = tube.offsetLeft + 'px';
-    easterEgg.style.top = tube.offsetTop + 'px';
-    
-    // Añadimos el easter egg al body del documento
     document.body.appendChild(easterEgg);
     
-    // Después de 100ms, hacemos visible el easter egg y aplicamos la animación
     setTimeout(() => {
         easterEgg.style.opacity = 1;
         easterEgg.style.transform = 'translateY(-50px) rotate(360deg)';
     }, 100);
     
-    // Eliminamos el easter egg después de 2 segundos
     setTimeout(() => easterEgg.remove(), 2000);
 }
+
 
 // Función que crea una anomalía temporal (efecto visual)
 function createTimeAnomaly() {
@@ -137,6 +127,18 @@ function createTimeAnomaly() {
     // Eliminamos la anomalía después de 4 segundos
     setTimeout(() => anomaly.remove(), 4000);
 }
+
+
+function tubeClick(tube) {
+    // Crear burbujas
+    for (let i = 0; i < 5; i++) {
+        setTimeout(() => createBubble(tube), i * 200);
+    }
+    
+    // Mostrar emoji flotante
+    showEasterEgg(tube);
+}
+
 
 // Función que actualiza el contador con números aleatorios
 function updateCountdown() {
@@ -164,6 +166,11 @@ function updateCountdown() {
     // Iniciamos la actualización del temporizador
     updateTimer();
 }
+
+
+
+
+
 
 // Función que activa el efecto del portal gun
 function activatePortalGun() {
@@ -265,3 +272,4 @@ document.querySelectorAll('.tube').forEach(tube => {
 
 // Aplicamos la animación de distorsión al body
 document.body.style.animation = 'distort 10s infinite alternate';
+
