@@ -201,7 +201,6 @@ h1 {
     transition: transform 0.1s;
 }
 
-
 /* Estilos del portal */
 #portal {
     position: fixed;
@@ -210,8 +209,45 @@ h1 {
     border-radius: 50%;
     background: radial-gradient(circle, #3aff8c, #1a1a2e);
     box-shadow: 0 0 20px #3aff8c;
-    animation: portal-spin 4s linear infinite;
+    animation: portal-spin 4s linear infinite, portal-pulse 2s ease-in-out infinite;
     display: none;
+    overflow: hidden;
+}
+
+/* Pseudo-elemento para el efecto de espiral */
+#portal::before {
+    content: "";
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    border-radius: 50%;
+    background: repeating-conic-gradient(
+        from 0deg,
+        rgba(255, 255, 255, 0.2),
+        rgba(255, 255, 255, 0.2) 10deg,
+        transparent 10deg,
+        transparent 20deg
+    );
+    animation: spiral-move 4s linear infinite;
+}
+
+/* Pseudo-elemento para las partículas */
+#portal::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 30%, #ffffff 1px, transparent 1px), 
+                radial-gradient(circle at 70% 70%, #00ffff 1px, transparent 1px),
+                radial-gradient(circle at 50% 50%, #ffffff 1px, transparent 1px),
+                radial-gradient(circle at 10% 90%, #00ffff 1px, transparent 1px);
+    background-size: 25% 25%;  /* Tamaño de la cuadrícula de partículas */
+    opacity: 0.6;
+    animation: particle-move 3s ease-in-out infinite alternate;
 }
 
 /* Animación de giro del portal */
@@ -219,6 +255,37 @@ h1 {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
+/* Animación del efecto espiral hacia el centro */
+@keyframes spiral-move {
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+    100% {
+        transform: scale(0.5) rotate(360deg);
+    }
+}
+
+/* Animación de pulsación del portal */
+@keyframes portal-pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+/* Animación de movimiento de partículas */
+@keyframes particle-move {
+    0% {
+        transform: translate(-10%, -10%) scale(1);
+    }
+    100% {
+        transform: translate(10%, 10%) scale(1.2);
+    }
+}
+
 
 /* Estilos de los personajes */
 #rick, #morty {

@@ -184,8 +184,8 @@ function activatePortalGun() {
     portal.style.left = Math.random() * (window.innerWidth - 100) + 'px';
     portal.style.top = Math.random() * (window.innerHeight - 100) + 'px';
     
-    // Ocultamos el portal después de 5 segundos
-    setTimeout(() => portal.style.display = 'none', 5000);
+    // Ocultamos el portal después de 7 segundos
+    setTimeout(() => portal.style.display = 'none', 8000);
     
     // Creamos dos anomalías temporales
     createTimeAnomaly();
