@@ -29,7 +29,7 @@ function showEasterEgg(x, y) {
 const messages = [
     "Calibrando flujo del espacio-tiempo...",
     "Buscando a Elquin en la dimensión C-137...",
-    "Reparando paradojas en la hoja de vida",
+    "Reparando paradojas en la hoja de vida...",
     "Experimentos interdimensionales en curso...",
     "Solucionando de manera improvisada errores en JavaScript...",
     "Escaneando repositorios dimensionales...",
@@ -64,16 +64,16 @@ const messages = [
     "Cargando proyectos: se detectaron anomalías en la realidad actual...",
     "Sincronizando con otra realidad donde este portafolio está terminado...",
     "Esperando un colapso cósmico para justificar esta demora...",
-    "Actualización crítica: el portafolio ya no se autodestruirá (probablemente).",
+    "Actualización crítica: el portafolio ya no se autodestruirá (probablemente)...",
     "Esta dimensión solo tiene un 10% de los proyectos... ¡pero son buenos!",
-    "Tranquilo reclutador, todo está (casi) bajo control.",
-    "Generando energía para el portafolio con un reactor de positrones.",
-    "Retrocediendo en el tiempo para evitar el código spaghetti.",
+    "Tranquilo reclutador, todo está (casi) bajo control...",
+    "Generando energía para el portafolio con un reactor de positrones...",
+    "Retrocediendo en el tiempo para evitar el código spaghetti...",
     "Generando un portafolio épico, ¡código a prueba de extraterrestres!",
     "Alertando a la dimensión de Recursos Humanos... ¡Elquin está aquí!",
     "Implementando habilidades de otra línea de tiempo... si es que aparecen.",
-    "Cuidado, este portafolio contiene trazas de antimateria.",
-    "Recopilando partículas de paciencia... podría necesitar más tiempo."
+    "Cuidado, este portafolio contiene trazas de antimateria...",
+    "Recopilando partículas de paciencia... podría necesitar más tiempo..."
 ];
 
 function getRandomFromArray(array) {
