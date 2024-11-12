@@ -175,25 +175,6 @@ h1 {
     overflow: hidden;
 }
 
-/* Pseudo-elemento para el efecto de espiral */
-#portal::before {
-    content: "";
-    position: absolute;
-    top: -10%;
-    left: -10%;
-    width: 120%;
-    height: 120%;
-    border-radius: 50%;
-    background: repeating-conic-gradient(
-        from 0deg,
-        rgba(255, 255, 255, 0.2),
-        rgba(255, 255, 255, 0.2) 10deg,
-        transparent 10deg,
-        transparent 20deg
-    );
-    animation: spiral-move 4s linear infinite;
-}
-
 /* Pseudo-elemento para las partículas */
 #portal::after {
     content: "";
@@ -207,23 +188,7 @@ h1 {
                 radial-gradient(circle at 10% 90%, #ff92ce 1px, transparent 1px);
     background-size: 25% 25%;  /* Tamaño de la cuadrícula de partículas */
     opacity: 0.6;
-    animation: particle-move 3s ease-in-out infinite alternate;
-}
-
-/* Animación de giro del portal */
-@keyframes portal-spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* Animación del efecto espiral hacia el centro */
-@keyframes spiral-move {
-    0% {
-        transform: scale(1) rotate(0deg);
-    }
-    100% {
-        transform: scale(0.5) rotate(360deg);
-    }
+    animation: particle-rotate 6s linear infinite, particle-move 3s ease-in-out infinite alternate;
 }
 
 /* Animación de pulsación del portal */
@@ -236,13 +201,13 @@ h1 {
     }
 }
 
-/* Animación de movimiento de partículas */
-@keyframes particle-move {
+/* Animación de movimiento circular de las partículas alrededor del portal */
+@keyframes particle-rotate {
     0% {
-        transform: translate(-10%, -10%) scale(1);
+        transform: rotate(0deg);
     }
-    100% {
-        transform: translate(10%, 10%) scale(1.2);
+    1% {
+        transform: rotate(360deg);
     }
 }
 
