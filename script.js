@@ -1,4 +1,29 @@
-const emojis = ['🧪', '⚗️', '🔬', '🧬', '🔭', '💉', '🧫', '🦠', '💊', '🌡️', '⚛️', '🔋', '💡', '🧲', '🎯', '🧮', '📡', '🛸', '🌌', '🌠', '☄️', '⚡', '🌀', '🎆', '💫', '✨', '💥'];
+const emojis = ['🤓', '🤔', '🧐', '😎','🧪', '⚗', '🔬', '🧬', '🔭', '💉', '🧫', '🦠', '💊', '🌡', '⚛', '🔋', '💡', '🧲', '🎯', '🧮', '📡', '🛸', '🌌', '🌠', '☄', '⚡', '🌀', '🎆', '💫', '✨', '💥'];
+
+// Escucha de clic para mostrar el emoji animado
+document.addEventListener('click', (e) => {
+    showEasterEgg(e.clientX, e.clientY); // Agrega el emoji animado
+});
+
+// Función para mostrar un emoji que sube y desaparece
+function showEasterEgg(x, y) {
+    const easterEgg = document.createElement('div');
+    easterEgg.classList.add('easter-egg');
+    easterEgg.textContent = getRandomFromArray(emojis);
+    easterEgg.style.left = `${x}px`;
+    easterEgg.style.top = `${y}px`;
+
+    document.body.appendChild(easterEgg);
+
+    // Animación de subida y desaparición
+    setTimeout(() => {
+        easterEgg.style.opacity = 0;
+        easterEgg.style.transform = 'translateY(-80px) rotate(360deg)';
+    }, 100);
+
+    setTimeout(() => easterEgg.remove(), 2000); // Eliminar después de 2 segundos
+}
+
 
 // Definimos un array con mensajes temáticos de Rick y Morty que se mostrarán aleatoriamente
 const messages = [
@@ -9,9 +34,47 @@ const messages = [
     "Solucionando de manera improvisada errores en JavaScript...",
     "Escaneando repositorios dimensionales...",
     "Ajustando la hoja de vida de Elquin...",
-    "Preguntando a ChatGPT por el sentido de la vida..."
+    "Preguntando a ChatGPT por la variable desaparecida...",
+    "Reparando una línea de código que viajó al pasado...",
+    "Buscando inspiración en la galaxia de ideas olvidadas...",
+    "¡Alerta! La galaxia C-137 está ardiendo otra vez...",
+    "Elquin Hernández no se encuentra disponible... ¿Otra vez?",
+    "Arreglando el código roto en una dimensión paralela...",
+    "Esto es solo una pausa cósmica en tu realidad...",
+    "Error 404: Portafolio en reconstrucción cuántica...",
+    "Detectando fragmentos de código extraviado...",
+    "Restaurando galaxias enteras... paciencia, humano.",
+    "Recolectando átomos dispersos del proyecto...",
+    "¿Es esto una dimensión o un bug? Verificando...",
+    "Iniciando secuencia de autodestrucción de bugs...",
+    "Ajustando portafolio... ¡Esta vez va en serio!",
+    "Arreglando el portafolio desde una realidad alterna...",
+    "Escaneando dimensiones en busca de proyectos que impresionen...",
+    "¡Advertencia! Las habilidades de Elquin pueden sobrecargar este portafolio...",
+    "Preparando demostración de habilidades... ¡prepárate para el impacto!",
+    "Verificación en curso: habilidades alineadas con el futuro de tu empresa...",
+    "Detectando reclutadores intergalácticos... ajuste de actitud en progreso.",
+    "Elquin ha sido avistado en una línea temporal olvidada... rastreando...",
+    "Cargando experiencia... ¡espera, no en esa dimensión!",
+    "Simulando habilidades mientras se construye el portafolio real...",
+    "Probando límites de la paciencia del reclutador...",
+    "Actualización en progreso... ¡duración estimada: 200 años luz!",
+    "Iniciando portal interdimensional... conexión inestable, como siempre.",
+    "Bajando portafolio... sí, todavía en mantenimiento.",
+    "Cargando proyectos: se detectaron anomalías en la realidad actual...",
+    "Sincronizando con otra realidad donde este portafolio está terminado...",
+    "Esperando un colapso cósmico para justificar esta demora...",
+    "Actualización crítica: el portafolio ya no se autodestruirá (probablemente).",
+    "Esta dimensión solo tiene un 10% de los proyectos... ¡pero son buenos!",
+    "Tranquilo reclutador, todo está (casi) bajo control.",
+    "Generando energía para el portafolio con un reactor de positrones.",
+    "Retrocediendo en el tiempo para evitar el código spaghetti.",
+    "Generando un portafolio épico, ¡código a prueba de extraterrestres!",
+    "Alertando a la dimensión de Recursos Humanos... ¡Elquin está aquí!",
+    "Implementando habilidades de otra línea de tiempo... si es que aparecen.",
+    "Cuidado, este portafolio contiene trazas de antimateria.",
+    "Recopilando partículas de paciencia... podría necesitar más tiempo."
 ];
-
 
 function getRandomFromArray(array) {
     return array[Math.floor(Math.random() * array.length)];
@@ -54,55 +117,6 @@ function updateProgressBar() {
     progressBar.style.width = width + '%';
 }
 
-// Función que crea una burbuja animada dentro de un tubo
-function createBubble(tube) {
-    // Creamos un nuevo elemento div para la burbuja
-    const bubble = document.createElement('div');
-    
-    // Añadimos la clase 'bubble' para los estilos CSS
-    bubble.classList.add('bubble');
-    
-    // Establecemos un tamaño aleatorio entre 5 y 15 píxeles
-    bubble.style.width = Math.random() * 10 + 5 + 'px';
-    
-    // Hacemos que la altura sea igual al ancho para que sea circular
-    bubble.style.height = bubble.style.width;
-    
-    // Posicionamos la burbuja horizontalmente de forma aleatoria dentro del tubo
-    bubble.style.left = Math.random() * 30 + 5 + 'px';
-    
-    // Establecemos una duración aleatoria para la animación entre 2 y 4 segundos
-    bubble.style.animationDuration = Math.random() * 2 + 2 + 's';
-    
-    // Añadimos la burbuja al tubo
-    tube.appendChild(bubble);
-    
-    // Eliminamos la burbuja después de 3 segundos
-    setTimeout(() => bubble.remove(), 3000);
-}
-
-
-
-// Función que muestra un easter egg cuando se hace clic en un tubo
-function showEasterEgg(tube) {
-    const easterEgg = document.createElement('div');
-    easterEgg.classList.add('easter-egg');
-    easterEgg.textContent = getRandomFromArray(emojis);
-    
-    const { left, top } = tube.getBoundingClientRect();
-    easterEgg.style.left = `${left}px`;
-    easterEgg.style.top = `${top}px`;
-    
-    document.body.appendChild(easterEgg);
-    
-    setTimeout(() => {
-        easterEgg.style.opacity = 1;
-        easterEgg.style.transform = 'translateY(-50px) rotate(360deg)';
-    }, 100);
-    
-    setTimeout(() => easterEgg.remove(), 2000);
-}
-
 
 // Función que crea una anomalía temporal (efecto visual)
 function createTimeAnomaly() {
@@ -128,16 +142,6 @@ function createTimeAnomaly() {
     setTimeout(() => anomaly.remove(), 4000);
 }
 
-
-function tubeClick(tube) {
-    // Crear burbujas
-    for (let i = 0; i < 5; i++) {
-        setTimeout(() => createBubble(tube), i * 200);
-    }
-    
-    // Mostrar emoji flotante
-    showEasterEgg(tube);
-}
 
 
 // Función que actualiza el contador con números aleatorios
@@ -262,13 +266,6 @@ setInterval(createTimeAnomaly, 10000);    // Crea una anomalía temporal cada 10
 // Iniciamos el contador
 updateCountdown();
 
-// Inicializamos los tubos con burbujas
-document.querySelectorAll('.tube').forEach(tube => {
-    // Creamos 3 burbujas iniciales en cada tubo
-    for (let i = 0; i < 3; i++) {
-        createBubble(tube);
-    }
-});
 
 // Aplicamos la animación de distorsión al body
 document.body.style.animation = 'distort 10s infinite alternate';

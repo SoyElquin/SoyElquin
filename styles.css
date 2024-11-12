@@ -99,46 +99,7 @@ h1 {
     100% { transform: translateX(100%); }
 }
 
-/* Contenedor de tubos de ensayo */
-.lab-container {
-    display: flex;
-    justify-content: space-around;
-    width: 80%;
-    margin-bottom: 20px;
-}
 
-/* Estilos de los tubos de ensayo */
-.tube {
-    width: 40px;
-    height: 120px;
-    background-color: rgba(58,255,140,0.2);
-    border: 2px solid var(--primary-color);
-    border-radius: 0 0 20px 20px;
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    transition: transform 0.3s;
-}
-
-/* Efecto hover en los tubos */
-.tube:hover {
-    transform: scale(1.1);
-}
-
-/* Estilos de las burbujas */
-.bubble {
-    position: absolute;
-    background-color: rgba(58,255,140,0.6);
-    border-radius: 50%;
-    animation: rise 3s infinite;
-}
-
-/* Animación de ascenso de burbujas */
-@keyframes rise {
-    0% { bottom: -20px; opacity: 0; }
-    50% { opacity: 1; }
-    100% { bottom: 120px; opacity: 0; }
-}
 
 /* Estilos de anomalías temporales */
 .time-anomaly {
@@ -336,31 +297,35 @@ h1 {
     animation: fadeIn 0.5s ease-out;
 }
 
-
-/* Estilos mejorados para los easter eggs (emojis) */
+/* Estilos de emojis */
 .easter-egg {
     position: absolute;
     font-size: 2em;
     opacity: 0;
     transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    z-index: 1000;
     text-shadow: 0 0 10px var(--primary-color);
     filter: drop-shadow(0 0 5px var(--primary-color));
-    animation: emojiPop 0.5s forwards;
+    animation: emojiRise 2s forwards; /* Animación para que el emoji suba y desaparezca */
 }
 
-/* Animación para cuando aparece el emoji */
-@keyframes emojiPop {
+
+/* Animación para que el emoji suba y desaparezca */
+@keyframes emojiRise {
     0% {
-        transform: scale(0) rotate(0deg);
-        opacity: 0;
-    }
-    50% {
-        transform: scale(1.2) rotate(180deg);
-        opacity: 0.8;
-    }
-    100% {
-        transform: scale(1) rotate(360deg);
+        transform: translateY(0) scale(1);
         opacity: 1;
     }
+    70% {
+        transform: translateY(-50px) scale(0.9);
+        opacity: 1; /* Sigue visible durante la subida */
+    }
+    100% {
+        transform: translateY(-50px) scale(0.8);
+        opacity: 0; /* Empieza a desaparecer al final */
+    }
+}
+
+/* Aplicar la animación al emoji */
+.emoji {
+    animation: emojiRise 3s ease-out forwards;
 }
