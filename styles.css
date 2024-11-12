@@ -67,18 +67,20 @@ h1 {
     background-color: rgba(255,255,255,0.1);
     border-radius: 10px;
     margin-bottom: 20px;
-    position: relative;
+    position: relative;  
     overflow: hidden;
+    z-index: 1;  
 }
 
-/* Barra de progreso */
+
 #progress-bar {
     width: 0;
     height: 20px;
     background-color: var(--primary-color);
     border-radius: 10px;
     transition: width 0.5s;
-    position: relative;
+    position: relative; 
+    z-index: 2;  
 }
 
 /* Efecto de brillo en la barra de progreso */
@@ -173,6 +175,8 @@ h1 {
     animation: portal-spin 4s linear infinite, portal-pulse 2s ease-in-out infinite;
     display: none;
     overflow: hidden;
+    z-index: 10;
+
 }
 
 /* Pseudo-elemento para las partículas */
