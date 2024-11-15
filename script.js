@@ -10,8 +10,8 @@ function showEasterEgg(x, y) {
     const easterEgg = document.createElement('div');
     easterEgg.classList.add('easter-egg');
     easterEgg.textContent = getRandomFromArray(emojis);
-    easterEgg.style.left = `${x}px`;
-    easterEgg.style.top = `${y}px`;
+    easterEgg.style.left = `${x - 17}px`;
+    easterEgg.style.top = `${y - 60}px`;
 
     document.body.appendChild(easterEgg);
 

@@ -61,6 +61,14 @@ h1 {
     color: var(--primary-color);
 }
 
+/* Ajuste responsivo para dispositivos móviles */
+@media (max-width: 600px) {
+    #message {
+        margin-bottom: 40px; 
+        font-size: 1em; 
+    }
+}
+
 /* Contenedor de la barra de progreso */
 .progress-container {
     width: 80%;
@@ -275,6 +283,8 @@ h1 {
     text-shadow: 0 0 10px var(--primary-color);
     filter: drop-shadow(0 0 5px var(--primary-color));
     animation: emojiRise 2s forwards; /* Animación para que el emoji suba y desaparezca */
+    user-select: none;
+    z-index: 4;
 }
 
 
